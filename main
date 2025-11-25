@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romalyn's - Premium Ube from the Philippines</title>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --anthracite: #333333;
+            --dark-purple: #6D4169;
+            --light-purple: #C7BEE2;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'MuseoModerno', sans-serif;
+            color: var(--anthracite);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-purple);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--anthracite);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--anthracite);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--dark-purple);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--light-purple) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--dark-purple);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--anthracite);
+            color: var(--white);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark-purple);
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--anthracite);
+            font-size: 18px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 250px;
+            background-color: var(--light-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark-purple);
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Cooking Classes */
+        .classes {
+            padding: 100px 0;
+        }
+        
+        .classes-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .classes-text {
+            flex: 1;
+        }
+        
+        .classes-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .classes-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .highlight {
+            background-color: var(--light-purple);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        /* Location */
+        .location {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .location-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .location-info {
+            flex: 1;
+        }
+        
+        .location-map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border: none;
+        }
+        
+        .hours {
+            margin-top: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--anthracite);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--light-purple);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--light-purple);
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .payment-methods img {
+            height: 30px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about, .classes-content, .location-content {
+                flex-direction: column;
+            }
+            
+            .about-image, .classes-image, .location-map {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Romalyn<span>'s</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#classes">Cooking Classes</a></li>
+                        <li><a href="#location">Location</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Ube from the Philippines</h1>
+            <p>Discover the exotic, visually stunning, and naturally made Filipino ingredient designed to inspire Parisian food lovers.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-image">
+                <!-- Placeholder for product image -->
+                <img src="https://via.placeholder.com/600x400/6D4169/FFFFFF?text=Romalyn's+Ube+Jar" alt="Romalyn's Ube Jar">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">Our Story</h2>
+                <p class="tagline">"Made with passion, dedication, and love"</p>
+                <p>Romalyn's brings the authentic taste of the Philippines to Paris with our premium Ube. Sourced directly from Filipino farms, our Ube is carefully selected and processed to preserve its natural flavor and vibrant color.</p>
+                <p>Our commitment to quality and authenticity makes Romalyn's the perfect choice for food enthusiasts seeking novelty, creativity, and genuine Filipino flavors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p>Discover our premium Ube jam, available in different sizes and through various channels.</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- Placeholder for product image -->
+                        <img src="https://via.placeholder.com/300x250/6D4169/FFFFFF?text=250g+Jar" alt="250g Ube Jar">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Ube Jam</h3>
+                        <p class="product-price">€13.50 – €15.00</p>
+                        <p>Our signature 250g jar of premium Ube jam, perfect for baking, cooking, or simply enjoying on toast.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- Placeholder for product image -->
+                        <img src="https://via.placeholder.com/300x250/C7BEE2/333333?text=Ube+Ingredients" alt="Ube Ingredients">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Ube Baking Kit</h3>
+                        <p class="product-price">€25.00</p>
+                        <p>Everything you need to create authentic Filipino Ube desserts at home, including our premium Ube jam and recipe cards.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- Placeholder for product image -->
+                        <img src="https://via.placeholder.com/300x250/6D4169/FFFFFF?text=Gift+Set" alt="Ube Gift Set">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Ube Gift Set</h3>
+                        <p class="product-price">€35.00</p>
+                        <p>The perfect introduction to Filipino flavors, featuring our Ube jam and other traditional ingredients in an elegant gift box.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cooking Classes -->
+    <section id="classes" class="classes">
+        <div class="container">
+            <h2 class="section-title">Ube Cooking Classes</h2>
+            
+            <div class="classes-content">
+                <div class="classes-text">
+                    <p>Immerse yourself in the world of Ube with our hands-on cooking classes. Learn to create traditional Filipino desserts and modern interpretations under the guidance of our expert chefs.</p>
+                    
+                    <div class="highlight">
+                        <h3>Special Offer</h3>
+                        <p>Add just €10 to your jar purchase for access to our exclusive cooking class. Limited availability with only 3 sessions per week.</p>
+                    </div>
+                    
+                    <p>Our classes are designed for small groups to ensure a personalized, high-quality experience where you'll learn the secrets of working with Ube.</p>
+                    
+                    <a href="#location" class="btn">Book a Class</a>
+                </div>
+                
+                <div class="classes-image">
+                    <!-- Placeholder for cooking class image -->
+                    <img src="https://via.placeholder.com/600x400/C7BEE2/333333?text=Cooking+Class" alt="Ube Cooking Class">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-title">Visit Our Shop</h2>
+            
+            <div class="location-content">
+                <div class="location-info">
+                    <p>Come visit us at our beautiful Marais location to experience the full range of Romalyn's products and immerse yourself in Filipino culture.</p>
+                    
+                    <address>
+                        <strong>Romalyn's Ube</strong><br>
+                        155 Rue de Turenne<br>
+                        Paris, Marais 3rd<br>
+                        France
+                    </address>
+                    
+                    <div class="hours">
+                        <h3>Opening Hours</h3>
+                        <p>Monday - Friday: 9am – 7pm</p>
+                        <p>Saturday - Sunday: Closed</p>
+                    </div>
+                    
+                    <p>Also available at select Monoprix locations throughout Paris.</p>
+                </div>
+                
+                <div class="location-map">
+                    <!-- Google Maps embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.373395392119!2d2.366215315674661!3d48.86192807928807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1b7eb6b8a5%3A0x4b3b8a5c0b5b0b5c!2s155%20Rue%20de%20Turenne%2C%2075003%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Romalyn's</h3>
+                    <p>Premium Ube from the Philippines, bringing authentic Filipino flavors to Paris.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#classes">Cooking Classes</a></li>
+                        <li><a href="#location">Visit Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>155 Rue de Turenne, Paris</li>
+                        <li>Marais 3rd</li>
+                        <li>info@romalyns-ube.com</li>
+                        <li>+33 1 23 45 67 89</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <p>We accept all major payment methods:</p>
+                    <div class="payment-methods">
+                        <!-- Payment method icons -->
+                        <img src="https://via.placeholder.com/50x30/FFFFFF/6D4169?text=VISA" alt="Visa">
+                        <img src="https://via.placeholder.com/50x30/FFFFFF/6D4169?text=MC" alt="Mastercard">
+                        <img src="https://via.placeholder.com/50x30/FFFFFF/6D4169?text=AMEX" alt="American Express">
+                        <img src="https://via.placeholder.com/50x30/FFFFFF/6D4169?text=PayPal" alt="PayPal">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Romalyn's Ube. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
